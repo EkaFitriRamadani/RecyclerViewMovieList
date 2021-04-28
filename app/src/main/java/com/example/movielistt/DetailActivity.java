@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DetailActivity extends AppCompatActivity {
@@ -19,6 +20,23 @@ public class DetailActivity extends AppCompatActivity {
         ivPoster = findViewById(R.id.iv_poster);
         tvTitle = findViewById(R.id.tv_title);
         tvGenre = findViewById(R.id.tv_genre);
+
+        MovieModel movie = getIntent().getParcelableExtra("MOVIE_DETAIL");
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(movie.getTitle());
+        actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     @Override

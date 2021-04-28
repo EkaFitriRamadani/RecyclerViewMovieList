@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Movie List</string>
+    <string name="label_movie">Movie</string>
+    <string name="label_tvshow">Music</string>
+    <string name="label_favorite">Favorite</string>
     <array name="posters">
         <item>@drawable/movie_vagabond</item>
         <item>@drawable/movie_beyond_evil</item>
@@ -35,5 +38,26 @@
         <item>Action, Thriller, Mystery, Sci-Fi</item>
         <item>Thriller, Horror, Psychological, Drama, Supernatural</item>
         <item>Horror, Thriller, Drama</item>
+    </string-array>
+    <array name="postermc">
+        <item>@drawable/music_lovesick_girls</item>
+        <item>@drawable/music_on_the_ground</item>
+        <item>@drawable/music_love_poem</item>
+        <item>@drawable/music_life_goes_on</item>
+        <item>@drawable/music_through_the_night</item>
+    </array>
+    <string-array name="titlemc">
+        <item>Lovesick Girls</item>
+        <item>On The Ground</item>
+        <item>Love Poem</item>
+        <item>Live Goes On</item>
+        <item>Through The Night</item>
+    </string-array>
+    <string-array name="artis">
+        <item>Blackpink</item>
+        <item>Rose</item>
+        <item>IU</item>
+        <item>BTS</item>
+        <item>IU</item>
     </string-array>
 </resources>

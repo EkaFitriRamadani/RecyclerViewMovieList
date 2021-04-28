@@ -1,41 +1,66 @@
 package com.example.movielistt;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
 
-public class MainActivity extends AppCompatActivity implements OnItemClickListener<MovieModel> {
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-    private RecyclerView recyclerView;
-    private MovieRecyclerAdapter adapter;
-    private Databases databases;
+import java.util.HashMap;
+import java.util.Map;
+
+public class MainActivity extends AppCompatActivity
+        implements BottomNavigationView.OnNavigationItemSelectedListener {
+    private BottomNavigationView bottomNavigationView;
+    private Map<Integer, Fragment> fragmentMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recyclerView = findViewById(R.id.rv_movies);
-        databases = new Databases(this);
-        adapter = new MovieRecyclerAdapter();
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        fragmentMap = new HashMap<>();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        adapter.setClickListener(this);
-        adapter.setMovies(databases.getMovies());
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
+        fragmentMap.put(R.id.menu_item_movie, FragmentMovie.newInstance());
+        fragmentMap.put(R.id.menu_item_tvshow, FragmentTvShow.newInstance());
+        fragmentMap.put(R.id.menu_item_favorite, FragmentFavorite.newInstance());
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.setSelectedItemId(R.id.menu_item_tvshow);
     }
 
     @Override
-    public void onClick(MovieModel movieModel) {
-        Intent detailActivity = new Intent(this, DetailActivity.class);
-        detailActivity.putExtra("MOVIE_DETAIL", movieModel);
-        startActivity(detailActivity);
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment selectedFragment = null;
+        switch (item.getItemId()) {
+            case R.id.menu_item_movie:
+                setActionBarTitle("Movie");
+                selectedFragment = new FragmentMovie();
+                break;
+            case R.id.menu_item_tvshow:
+                setActionBarTitle("Music");
+                selectedFragment = new FragmentTvShow();
+                break;
+            case R.id.menu_item_favorite:
+                setActionBarTitle("Favorite");
+                selectedFragment = new FragmentFavorite();
+                break;
+        }
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frame_layout, selectedFragment)
+                .commit();
+        return true;
+    }
+
+    private void setActionBarTitle(String title){
+        getSupportActionBar().setTitle(title);
     }
 }
