@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Movie List</string>
+    <array name="posters">
+        <item>@drawable/movie_vagabond</item>
+        <item>@drawable/movie_beyond_evil</item>
+        <item>@drawable/movie_mouse</item>
+        <item>@drawable/movie_taxi_driver</item>
+        <item>@drawable/movie_search</item>
+        <item>@drawable/movie_vincenzo</item>
+        <item>@drawable/movie_the_k2</item>
+        <item>@drawable/movie_dark_hole</item>
+        <item>@drawable/movie_sweet_home</item>
+        <item>@drawable/movie_strangers_from_hell</item>
+    </array>
+    <string-array name="titles">
+        <item>Vagabond</item>
+        <item>Beyond Evil</item>
+        <item>Mouse</item>
+        <item>Taxi Driver</item>
+        <item>Search</item>
+        <item>Vincenzo</item>
+        <item>The K2</item>
+        <item>Dark Hole</item>
+        <item>Sweet Home</item>
+        <item>Strangers From Hell</item>
+    </string-array>
+    <string-array name="genres">
+        <item>Spy, Action, Crime, Thriller, Romance</item>
+        <item>Procedural Drama, Psychological Thriller</item>
+        <item>Crime, Thriller, Suspense, Mystery</item>
+        <item>Action, Drama, History</item>
+        <item>Military, Suspense, Thriller, Mystery, Fantasy</item>
+        <item>Comedy, Romance, Drama, Crime</item>
+        <item>Action, Melodrama, Politics</item>
+        <item>Action, Thriller, Mystery, Sci-Fi</item>
+        <item>Thriller, Horror, Psychological, Drama, Supernatural</item>
+        <item>Horror, Thriller, Drama</item>
+    </string-array>
+</resources>
